@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block body %}
+
+    <style>
+        .formInsc{
+            background: lightblue;
+            border-radius: 30px;
+            box-shadow: inset 0 0 10px darkgray;
+            display: block;
+            margin:auto;
+            width:850px;
+            padding: 5%;
+            margin-top: 50px;
+        }
+        label{
+            font-family: "Droid Sans Mono";
+            font-size: larger;
+            color:dimgray;
+            border-radius: 14px;
+            padding: 4px;
+        }
+    </style>
+
+    <div class="formInsc">
+
+        <h1 class="display-4 text-center text-secondary p-3 mb-5">Connexion à My Quiz</h1>
+
+        <form action="{{ path('connexion') }}" method="post">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required name="_username">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" required name="_password">
+            </div>
+            <button type="submit" class="btn btn-light text-secondary d-block mx-auto">Connexion</button>
+        </form>
+
+    </div>
+{% endblock %}

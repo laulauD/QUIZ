@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1 class="display-5 text-center text-info p-3 mb-5 bg-secondary bg-gradient"> Résultat :</h1>
+
+
+        <div class="card-body" style="width:60%;margin:auto">
+                <div class="card text-center border border-3 border-light mb-2">
+                    <div class="card-header border-top border-info fw-light p-2">
+                        {% for score in scored %}
+                               <h5 class="fs-3 fw-light card-title text-center p-2">{{ score.score }} / 10</h5>
+                        {% endfor %}
+                    </div>
+
+                    <div class="card-body m-4 d-flex fw-light fs-4 flex-column">
+                        <p>Pour le quiz "{{ quizInfos.name }} ".</p>
+                    </div>
+                </div>
+        </div>
+
+        <div class="d-flex justify-content-center p-2">
+            <a type="button" href="{{ path('quiz') }}" class="btn btn-secondary text-info fw-bolder p-2">Rejouez !</a>
+        </div>
+
+        <div class="d-flex justify-content-center mt-4">
+            <a type="button" href="{{ path('classement') }}" class="btn btn-secondary text-info p-2">Voir le classement</a>
+        </div>
+
+{% endblock %}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}MyQuiz{% endblock %}</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        {% block stylesheets %}
+            {#{{ encore_entry_link_tags('app') }}#}
+        {% endblock %}
+    </head>
+    <body class="bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+          <div class="container-fluid">
+            <a class="navbar-brand text-info" href="/">MyQuiz</a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link" href="/quiz">Quiz</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/categories">Catégories</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/classement">Classement</a>
+                </li>
+              </ul>
+                <form class="d-flex">
+                    {% if not app.user %}
+                        <a class="btn btn-outline-info me-2" type="button" href="/inscription">Inscription</a>
+                        <a class="btn btn-outline-info me-2" type="button" href="/connexion">Connexion</a>
+                    {% else %}
+                        <a class="btn btn-outline-info me-2" type="button" href="{{ path('logout') }}">Déconnexion</a>
+                    {% endif %}
+                </form>
+            </div>
+          </div>
+        </nav>
+
+        {% block body %}{% endblock %}
+
+        <footer class="fixed-bottom bg-white bg-gradient">
+                <ul class="nav justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link disabled">Mentions légales</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled">Contact</a>
+                    </li>
+                </ul>
+        </footer>
+
+    </body>
+</html>

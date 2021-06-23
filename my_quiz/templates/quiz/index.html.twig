@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les Quiz !{% endblock %}
+
+{% block body %}
+
+<h2 class="display-5 text-center text-info p-3 mb-5 bg-secondary bg-gradient">Let's quiz !</h2>
+<div class="container-fluid d-block">
+{% for quiz in quizs %}
+<div class="card text-center border border-1 border-info" style="width: 24rem;margin:2rem;display:inline-block">
+  <div class="card-body">
+    <h5 class="fs-3 fw-light card-title text-center p-2">{{ quiz.name }}</h5>
+    <a href="{{ path('myquiz', {'id': quiz.id}) }}" class="btn btn-info fw-light">Commencer le quiz !</a>
+  </div>
+</div>
+{% endfor %}
+</div>
+{% endblock %}
